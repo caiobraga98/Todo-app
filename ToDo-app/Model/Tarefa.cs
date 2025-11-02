@@ -3,10 +3,10 @@
     public class Tarefa
     {
         public int Id { get; set; }
-        public required string titulo { get; set; }
-        public string? descricao { get; set; }
-        public DateTime dataCriacao { get; set; }
-        public DateTime? dataConclusao { get; set; }
-        public bool concluida { get; set; }
+        public required string Titulo { get; set; }
+        public string? Descricao { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataConclusao { get; set; }
+        public bool Concluida { get; set; }
     }
 }
