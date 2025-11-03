@@ -22,7 +22,7 @@ namespace ToDo_app.Repository
 
         public async Task DeleteAsync(int id)
         {
-            var result = _context.Set<T>().FindAsync(id);
+            var result = await _context.Set<T>().FindAsync(id);
             _context.Remove(result);
             await _context.SaveChangesAsync();
         }
@@ -34,8 +34,7 @@ namespace ToDo_app.Repository
 
         public async Task<T?> GetByIdAsync(int id)
         {
-             var result = _context.Find<T>(id);
-                return await Task.FromResult(result);
+            return await _context.Set<T>().FindAsync(id);
         }
 
         public async Task UpdateAsync(T entity)
