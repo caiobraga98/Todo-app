@@ -14,16 +14,17 @@ namespace ToDo_app.Repository
             _context = context;
         }
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            var result = _context.Add(entity);
-            return Task.CompletedTask;
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            var result = _context.Remove(_context.Find<T>(id)!);
-            return Task.CompletedTask;
+            var result = _context.Set<T>().FindAsync(id);
+            _context.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
