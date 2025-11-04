@@ -23,8 +23,11 @@ namespace ToDo_app.Repository
         public async Task DeleteAsync(int id)
         {
             var result = await _context.Set<T>().FindAsync(id);
-            _context.Remove(result);
-            await _context.SaveChangesAsync();
+            if (result != null) 
+            {
+                _context.Remove(result);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
