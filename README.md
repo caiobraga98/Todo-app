@@ -1,7 +1,3 @@
-﻿Certamente! Criar um README.md é essencial para documentar e comunicar a arquitetura do seu projeto.
-
-Aqui está um README.md completo, resumindo os passos de configuração, arquitetura (Repository) e implementação da sua API TO-DO List em C# e .NET.
-
 🚀 TO-DO List API (.NET 8, SQLite & Padrão Repository)
 Este projeto implementa uma API RESTful simples para gerenciamento de tarefas (TO-DO List) utilizando C# e .NET, focando na aplicação do Padrão Repository e no uso do Entity Framework Core (EF Core) com um banco de dados SQLite local.
 
