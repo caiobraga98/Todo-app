@@ -30,5 +30,21 @@ namespace Todo_app.Tests
             // Verificar se o resultado é do tipo NotFound (Status 404)
             Assert.IsType<NotFoundObjectResult>(resultado);
         }
+        [Fact]
+        public async Task GetById_IdFound()
+        {
+            //arrange
+            int id = 1;
+            var mockRepository = new Mock<IRepository<Tarefa>>();
+            Tarefa tarefa = new Tarefa() { Titulo = "teste", Concluida = false, DataConclusao = new DateTime(), DataCriacao = new DateTime(), Id = 1, Descricao = "teste" };
+            mockRepository.Setup(repo => repo.GetByIdAsync(id))
+                          .ReturnsAsync(tarefa);
+            var controller = new TarefasController(mockRepository.Object);
+            //act
+            var resultado = await controller.GetById(id);
+            //assert
+            var okResult = Assert.IsType<OkObjectResult>(resultado);
+        }
     }
+
 }
