@@ -1,0 +1,10 @@
+﻿# Ignorar pastas de build padrão
+**/bin/
+**/obj/
+
+# Ignorar arquivos relacionados ao Docker (que já estão no contexto)
+Dockerfile
+.dockerignore
+
+# Ignorar o projeto de testes
+ToDo-app.Tests/
